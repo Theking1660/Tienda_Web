@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "aoDgIWMKB4MU6BEUkAJLp7npnMfuYdaMXjpMvJ+jkZc=",
+  "Source": "Tienda_Api",
+  "BasePath": "_content/Tienda_Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

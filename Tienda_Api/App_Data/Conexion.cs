@@ -2,5 +2,6 @@
 {
     public class Conexion
     {
+        static public string CN = "Data Source=gabriel-lebron;Initial Catalog=TiendaBD;Integrated Security=True";
     }
 }

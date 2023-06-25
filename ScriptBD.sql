@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [TiendaBD]    Script Date: 11/6/2023 3:42:21 p. m. ******/
+/****** Object:  Database [TiendaBD]    Script Date: 11/6/2023 5:55:05 p. m. ******/
 
 ALTER DATABASE [TiendaBD] SET COMPATIBILITY_LEVEL = 150
 GO
@@ -77,10 +77,10 @@ ALTER DATABASE [TiendaBD] SET QUERY_STORE (OPERATION_MODE = READ_WRITE, CLEANUP_
 GO
 USE [TiendaBD]
 GO
-/****** Object:  Schema [Tienda]    Script Date: 11/6/2023 3:42:22 p. m. ******/
+/****** Object:  Schema [Tienda]    Script Date: 11/6/2023 5:55:06 p. m. ******/
 CREATE SCHEMA [Tienda]
 GO
-/****** Object:  Table [Tienda].[Categoria]    Script Date: 11/6/2023 3:42:22 p. m. ******/
+/****** Object:  Table [Tienda].[Categoria]    Script Date: 11/6/2023 5:55:06 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -94,22 +94,23 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Tienda].[Ciudad]    Script Date: 11/6/2023 3:42:22 p. m. ******/
+/****** Object:  Table [Tienda].[Ciudad]    Script Date: 11/6/2023 5:55:06 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [Tienda].[Ciudad](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[Ciudad_id] [char](2) NOT NULL,
 	[Pais_id] [char](2) NOT NULL,
 	[Ciudad] [nvarchar](100) NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
-	[Ciudad_id] ASC
+	[ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Tienda].[Comentario]    Script Date: 11/6/2023 3:42:22 p. m. ******/
+/****** Object:  Table [Tienda].[Comentario]    Script Date: 11/6/2023 5:55:06 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -126,7 +127,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Tienda].[Comentario_Producto]    Script Date: 11/6/2023 3:42:22 p. m. ******/
+/****** Object:  Table [Tienda].[Comentario_Producto]    Script Date: 11/6/2023 5:55:06 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -141,7 +142,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Tienda].[Cuenta]    Script Date: 11/6/2023 3:42:22 p. m. ******/
+/****** Object:  Table [Tienda].[Cuenta]    Script Date: 11/6/2023 5:55:06 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -160,7 +161,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Tienda].[Cupones]    Script Date: 11/6/2023 3:42:22 p. m. ******/
+/****** Object:  Table [Tienda].[Cupones]    Script Date: 11/6/2023 5:55:06 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -180,7 +181,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Tienda].[Direccion]    Script Date: 11/6/2023 3:42:22 p. m. ******/
+/****** Object:  Table [Tienda].[Direccion]    Script Date: 11/6/2023 5:55:06 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -188,16 +189,16 @@ GO
 CREATE TABLE [Tienda].[Direccion](
 	[Direccion_id] [int] IDENTITY(1,1) NOT NULL,
 	[Pais_id] [char](2) NOT NULL,
-	[Cuidad_id] [char](2) NOT NULL,
 	[Ubicacion] [nvarchar](200) NOT NULL,
 	[Codigo_Postal] [int] NOT NULL,
+	[Ciudad_id] [int] NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[Direccion_id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Tienda].[Metodo_Pago]    Script Date: 11/6/2023 3:42:22 p. m. ******/
+/****** Object:  Table [Tienda].[Metodo_Pago]    Script Date: 11/6/2023 5:55:06 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -211,7 +212,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Tienda].[Pais]    Script Date: 11/6/2023 3:42:22 p. m. ******/
+/****** Object:  Table [Tienda].[Pais]    Script Date: 11/6/2023 5:55:06 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -225,7 +226,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Tienda].[Pedido]    Script Date: 11/6/2023 3:42:22 p. m. ******/
+/****** Object:  Table [Tienda].[Pedido]    Script Date: 11/6/2023 5:55:06 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -250,7 +251,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Tienda].[Perfil]    Script Date: 11/6/2023 3:42:22 p. m. ******/
+/****** Object:  Table [Tienda].[Perfil]    Script Date: 11/6/2023 5:55:06 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -273,7 +274,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Tienda].[Producto]    Script Date: 11/6/2023 3:42:22 p. m. ******/
+/****** Object:  Table [Tienda].[Producto]    Script Date: 11/6/2023 5:55:06 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -290,7 +291,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Tienda].[Subcategoria]    Script Date: 11/6/2023 3:42:22 p. m. ******/
+/****** Object:  Table [Tienda].[Subcategoria]    Script Date: 11/6/2023 5:55:06 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -305,7 +306,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Tienda].[Tipo_Perfil]    Script Date: 11/6/2023 3:42:22 p. m. ******/
+/****** Object:  Table [Tienda].[Tipo_Perfil]    Script Date: 11/6/2023 5:55:06 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -319,7 +320,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Tienda].[Vendedor]    Script Date: 11/6/2023 3:42:22 p. m. ******/
+/****** Object:  Table [Tienda].[Vendedor]    Script Date: 11/6/2023 5:55:06 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -371,6 +372,188 @@ GO
 INSERT [Tienda].[Categoria] ([Categoria_id], [Categoria]) VALUES (16, N'Industrial y Cientifico')
 GO
 SET IDENTITY_INSERT [Tienda].[Categoria] OFF
+GO
+SET IDENTITY_INSERT [Tienda].[Ciudad] ON 
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (1, N'AL', N'US', N'Alabama')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (2, N'AK', N'US', N'Alaska')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (3, N'AS', N'US', N'American Samoa')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (4, N'AZ', N'US', N'Arizona')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (5, N'AR', N'US', N'Arkansas')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (6, N'CA', N'US', N'California')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (7, N'CO', N'US', N'Colorado')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (8, N'CT', N'US', N'Connecticut')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (9, N'DE', N'US', N'Delaware')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (10, N'DC', N'US', N'Disctrict of Columbia')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (11, N'FM', N'US', N'Federated States of Micronesia')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (12, N'FL', N'US', N'Florida')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (13, N'GA', N'US', N'Georgia')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (14, N'GU', N'US', N'Guam')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (15, N'HI', N'US', N'Hawaii')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (16, N'ID', N'US', N'Idaho')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (17, N'IL', N'US', N'Illinois')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (18, N'IN', N'US', N'Indiana')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (19, N'IA', N'US', N'Iowa')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (20, N'KS', N'US', N'Kansas')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (21, N'KY', N'US', N'Kentucky')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (22, N'LA', N'US', N'Louisana')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (23, N'ME', N'US', N'Maine')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (24, N'MH', N'US', N'Marshall Islands')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (25, N'MD', N'US', N'Maryland')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (26, N'MA', N'US', N'Massachusetts')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (27, N'MI', N'US', N'Michigan')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (28, N'MN', N'US', N'Minnesota')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (29, N'MS', N'US', N'Mississippi')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (30, N'MT', N'US', N'Montana')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (31, N'NE', N'US', N'Nebraska')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (32, N'NV', N'US', N'Nevada')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (33, N'NH', N'US', N'New Hampshire')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (34, N'NJ', N'US', N'New Jersey')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (35, N'NM', N'US', N'New Mexico')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (36, N'NY', N'US', N'New York')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (37, N'NC', N'US', N'North Carolina')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (38, N'ND', N'US', N'North Dakota')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (39, N'MP', N'US', N'Northern Mariana Islands')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (40, N'OH', N'US', N'Ohio')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (41, N'OK', N'US', N'Oklahoma')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (42, N'OR', N'US', N'Oregon')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (43, N'PW', N'US', N'Palau')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (44, N'PA', N'US', N'Pennsylvania')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (45, N'PR', N'US', N'Puerto Rico')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (46, N'RI', N'US', N'Rhode Island')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (47, N'SC', N'US', N'South Carolina')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (48, N'SD', N'US', N'South Dakota')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (49, N'TN', N'US', N'Tennesse')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (50, N'TX', N'US', N'Texas')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (51, N'UT', N'US', N'Utah')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (52, N'VT', N'US', N'Vermont')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (53, N'VI', N'US', N'Virgin Islands')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (54, N'VA', N'US', N'Virginia')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (55, N'WA', N'US', N'Washington')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (56, N'WV', N'US', N'West Virginia')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (57, N'WI', N'US', N'Wisconsin')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (58, N'WY', N'US', N'Wyoming')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (59, N'AZ', N'DO', N'Azua')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (60, N'BH', N'DO', N'Bahoruco')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (61, N'BR', N'DO', N'Barahona')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (62, N'DJ', N'DO', N'Dajabon')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (63, N'DU', N'DO', N'Duarte')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (64, N'EP', N'DO', N'Elías Piña')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (65, N'ES', N'DO', N'El Seibo')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (66, N'ET', N'DO', N'Espaillat')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (67, N'HM', N'DO', N'Hato Mayor')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (68, N'SM', N'DO', N'Hermanas Mirabal')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (69, N'IN', N'DO', N'Independencia')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (70, N'LA', N'DO', N'La Altagracia')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (71, N'LR', N'DO', N'La Romana')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (72, N'LV', N'DO', N'La Vega')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (73, N'MT', N'DO', N'María Trinidad Sánchez')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (74, N'MN', N'DO', N'Monseñor Nouel')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (75, N'MC', N'DO', N'Monte Cristi')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (76, N'MP', N'DO', N'Monte Plata ')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (77, N'PE', N'DO', N'Perdenales')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (78, N'PV', N'DO', N'Peravia')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (79, N'PP', N'DO', N'Puerto Plata')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (80, N'SA', N'DO', N'Samaná')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (81, N'SC', N'DO', N'San Cristóbal ')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (82, N'JO', N'DO', N'San José de Ocoa')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (83, N'SJ', N'DO', N'San Juan')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (84, N'SP', N'DO', N'San Pedro de Macorís')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (85, N'SR', N'DO', N'Sánchez Ramírez')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (86, N'SO', N'DO', N'Santiago')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (87, N'RO', N'DO', N'Santiago Rodríguez')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (88, N'SD', N'DO', N'Santo Domingo')
+GO
+INSERT [Tienda].[Ciudad] ([ID], [Ciudad_id], [Pais_id], [Ciudad]) VALUES (89, N'VA', N'DO', N'Valverde')
+GO
+SET IDENTITY_INSERT [Tienda].[Ciudad] OFF
 GO
 SET IDENTITY_INSERT [Tienda].[Metodo_Pago] ON 
 GO
@@ -1275,13 +1458,13 @@ GO
 ALTER TABLE [Tienda].[Cupones]  WITH CHECK ADD FOREIGN KEY([Producto_id])
 REFERENCES [Tienda].[Producto] ([Producto_id])
 GO
-ALTER TABLE [Tienda].[Direccion]  WITH CHECK ADD  CONSTRAINT [FK__Direccion__Cuida__6383C8BA] FOREIGN KEY([Cuidad_id])
-REFERENCES [Tienda].[Ciudad] ([Ciudad_id])
-GO
-ALTER TABLE [Tienda].[Direccion] CHECK CONSTRAINT [FK__Direccion__Cuida__6383C8BA]
-GO
 ALTER TABLE [Tienda].[Direccion]  WITH CHECK ADD FOREIGN KEY([Pais_id])
 REFERENCES [Tienda].[Pais] ([Pais_id])
+GO
+ALTER TABLE [Tienda].[Direccion]  WITH CHECK ADD  CONSTRAINT [FK_Direccion_Ciudad] FOREIGN KEY([Ciudad_id])
+REFERENCES [Tienda].[Ciudad] ([ID])
+GO
+ALTER TABLE [Tienda].[Direccion] CHECK CONSTRAINT [FK_Direccion_Ciudad]
 GO
 ALTER TABLE [Tienda].[Pedido]  WITH CHECK ADD FOREIGN KEY([Cuenta_id])
 REFERENCES [Tienda].[Cuenta] ([Cuenta_id])

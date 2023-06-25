@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Tienda",
+    "\\Tienda_Api"
   ],
-  "SelectedNode": "\\Tienda.sln",
+  "SelectedNode": "\\packages",
   "PreviewInSolutionExplorer": false
 }

@@ -8,10 +8,12 @@ namespace Tienda_Api.Datos
 {
     public class DProducto
     {
+        private string CN = Conexion.CN;
+
         public async Task<List<MProducto>> Mostrar()
         {
             var lista = new List<MProducto>();
-            using (var sql = new SqlConnection(Conexion.CN))
+            using (var sql = new SqlConnection(CN))
             {
                 using (var cmd = new SqlCommand("GetProducto", sql))
                 {

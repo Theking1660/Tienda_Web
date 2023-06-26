@@ -5,6 +5,7 @@ namespace Tienda_Api.Models
 {
     public class MCiudad
     {
+        public int ID { get; set; }
         [MaxLength(2)]
         public char Ciudad_id { get; set; }
         [MaxLength(2)]

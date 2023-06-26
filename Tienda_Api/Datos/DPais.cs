@@ -6,10 +6,12 @@ namespace Tienda_Api.Datos
 {
     public class DPais
     {
+        private string CN = Conexion.CN;
+
         public async Task<List<MPais>> Mostrar()
         {
             var lista = new List<MPais>();
-            using (var sql = new SqlConnection(Conexion.CN))
+            using (var sql = new SqlConnection(CN))
             {
                 using (var cmd = new SqlCommand("GetPais", sql))
                 {
@@ -22,10 +24,12 @@ namespace Tienda_Api.Datos
                             MPais pais = new MPais();
                             pais.Pais_id = (char)item[0];
                             pais.Pais = (string)item[1];
+                            lista.Add(pais);
                         }
                     }
                 }
             }
+            return lista;
         }
     }
 }

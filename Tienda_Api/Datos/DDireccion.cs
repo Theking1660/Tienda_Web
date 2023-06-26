@@ -6,10 +6,12 @@ using Tienda_Api.Models;
 
 public class DDireccion
 {
+    private string CN = Conexion.CN;
+
     public async Task<List<MDireccion>> Mostrar()
     {
         var lista = new List<MDireccion>();
-        using (var sql = new SqlConnection(Conexion.CN))
+        using (var sql = new SqlConnection(CN))
         {
             using(var cmd = new SqlCommand("GetDireccion", sql))
             {

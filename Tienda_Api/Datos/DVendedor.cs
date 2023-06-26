@@ -15,8 +15,8 @@ namespace Tienda_Api.Datos
             {
                 using (var cmd = new SqlCommand("GetVendedor", sql))
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
                     await sql.OpenAsync();
+                    cmd.CommandType = CommandType.StoredProcedure;
                     using (var item = await cmd.ExecuteReaderAsync())
                     {
                         while (await item.ReadAsync())

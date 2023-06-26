@@ -13,10 +13,10 @@ namespace Tienda_Api.Datos
             var lista = new List<MSubcategoria>();
             using (var sql = new SqlConnection(CN))
             {
-                using (var cmd = new SqlCommand("Select * from Tienda.Subcategoria", sql))
+                using (var cmd = new SqlCommand("GetSubcategoria", sql))
                 {
                     await sql.OpenAsync();
-                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandType = CommandType.StoredProcedure;
                     using (var item = await cmd.ExecuteReaderAsync())
                     {
                         while (await item.ReadAsync())

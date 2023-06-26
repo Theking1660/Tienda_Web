@@ -12,5 +12,6 @@ namespace Tienda_Api.Models
         public bool Activado { get; set; }
         public DateTime Fecha_inicio { get; set; }
         public DateTime Fecha_fin { get; set; }
+        public DateTime Fecha_creacion { get; set; }
     }
 }

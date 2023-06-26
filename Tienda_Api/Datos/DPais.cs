@@ -22,7 +22,7 @@ namespace Tienda_Api.Datos
                         while (await item.ReadAsync())
                         {
                             MPais pais = new MPais();
-                            pais.Pais_id = (char)item[0];
+                            pais.Pais_id = (string)item[0];
                             pais.Pais = (string)item[1];
                             lista.Add(pais);
                         }

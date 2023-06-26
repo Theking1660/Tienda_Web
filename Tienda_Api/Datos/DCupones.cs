@@ -26,7 +26,7 @@ namespace Tienda_Api.Datos
                             MCupones cupones = new MCupones();
                             cupones.Cupones_id = (int)item[0];
                             cupones.Producto_id = (int)item[1];
-                            cupones.Codigo = (char)item[2];
+                            cupones.Codigo = (string)item[2];
                             cupones.Descuento = (decimal)item[3];
                             cupones.Activado = (bool)item[4];
                             cupones.Fecha_inicio = (DateTime)item[5];

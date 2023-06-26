@@ -9,7 +9,7 @@ namespace Tienda_Api.Models
         public int MetodoP_id { get; set; }
         public int Direccion_id { get; set; }
         [StringLength(6)]
-        public char Cuenta { get; set; }
+        public string Cuenta { get; set; }
         public DateTime Fecha_creacion { get; set; }
         public DateTime Fecha_actualizacion { get; set; }
     }

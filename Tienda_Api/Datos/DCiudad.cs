@@ -25,8 +25,8 @@ namespace Tienda_Api.Datos
                         {
                             MCiudad ciudad = new MCiudad();
                             ciudad.ID = (int)item[0];
-                            ciudad.Ciudad_id = (char)item[1];
-                            ciudad.Pais_id = (char)(item[2]);
+                            ciudad.Ciudad_id = (string)item[1];
+                            ciudad.Pais_id = (string)(item[2]);
                             ciudad.Ciudad = (string)item[3];
                             lista.Add(ciudad);
                         }

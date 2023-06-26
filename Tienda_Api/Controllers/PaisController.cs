@@ -1,12 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Tienda_Api.Datos;
+using Tienda_Api.Models;
 
 namespace Tienda_Api.Controllers
 {
+    [ApiController]
+    [Route("/api/Pais")]
     public class PaisController : Controller
     {
-        public IActionResult Index()
+        [HttpGet]
+        public async Task<ActionResult<List<MPais>>> Get()
         {
-            return View();
+            DPais pais = new DPais();
+            var lista = await pais.Mostrar();
+            return lista;
         }
     }
 }

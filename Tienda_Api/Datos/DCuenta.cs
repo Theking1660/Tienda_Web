@@ -26,7 +26,7 @@ namespace Tienda_Api.Datos
                             cuenta.Perfil_id = (int)item[1];
                             cuenta.MetodoP_id = (int)item[2];
                             cuenta.Direccion_id = (int)item[3];
-                            cuenta.Cuenta = (char)item[4];
+                            cuenta.Cuenta = (string)item[4];
                             cuenta.Fecha_creacion = (DateTime)item[5];
                             cuenta.Fecha_actualizacion = (DateTime)item[6];
                             lista.Add(cuenta);

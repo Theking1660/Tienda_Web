@@ -8,10 +8,12 @@ namespace Tienda_Api.Datos
 {
     public class DMetodo_Pago
     {
+        private string CN = Conexion.CN;
+
         public async Task<List<MMetodo_Pago>> Mostrar()
         {
             var lista = new List<MMetodo_Pago>();
-            using (var sql = new SqlConnection(Conexion.CN))
+            using (var sql = new SqlConnection(CN))
             {
                 using (var cmd = new SqlCommand("GetMetodoPago", sql))
                 {

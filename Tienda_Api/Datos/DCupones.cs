@@ -8,10 +8,12 @@ namespace Tienda_Api.Datos
 {
     public class DCupones
     {
+        private string CN = Conexion.CN;
+
         public async Task<List<MCupones>> Mostrar()
         {
             var lista = new List<MCupones>();
-            using (var sql = new SqlConnection(Conexion.CN))
+            using (var sql = new SqlConnection(CN))
             {
                 using (var cmd = new SqlCommand("GetCupones", sql))
                 {

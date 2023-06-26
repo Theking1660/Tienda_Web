@@ -8,10 +8,12 @@ namespace Tienda_Api.Datos
 {
     public class DPedido
     {
+        private string CN = Conexion.CN;
+
         public async Task<List<MPedido>> Mostrar()
         {
             var lista = new List<MPedido>();
-            using (var sql = new SqlConnection(Conexion.CN))
+            using (var sql = new SqlConnection(CN))
             {
                 using (var cmd = new SqlCommand("GetPedido", sql))
                 {
@@ -40,6 +42,7 @@ namespace Tienda_Api.Datos
                     }
                 }
             }
+            return lista;
         }
     }
 }

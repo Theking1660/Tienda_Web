@@ -1,12 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Tienda_Api.Datos;
+using Tienda_Api.Models;
 
 namespace Tienda_Api.Controllers
 {
+    [ApiController]
+    [Route("/api/Comentario")]
     public class ComentarioController : Controller
     {
-        public IActionResult Index()
+        private DComentario comentario = new DComentario();
+        [HttpGet]
+        public async Task<ActionResult<List<MComentario>>> Get()
         {
-            return View();
+
+            var lista = await comentario.Mostrar();
+            return lista;
+
         }
     }
 }

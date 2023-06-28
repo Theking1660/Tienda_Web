@@ -1,0 +1,2 @@
+C:\Users\gabri\Documentos\INTEC\CLASS\TRIMESTRE MAYO-JULIO 2023\Desarrollo Web\Tienda\Tienda_Interfaz\obj\Debug\Tienda_Interfaz.esproj.SuggestedBindingRedirects.cache
+C:\Users\gabri\Documentos\INTEC\CLASS\TRIMESTRE MAYO-JULIO 2023\Desarrollo Web\Tienda\Tienda_Interfaz\obj\Debug\Tienda_Interfaz.esproj.CoreCompileInputs.cache

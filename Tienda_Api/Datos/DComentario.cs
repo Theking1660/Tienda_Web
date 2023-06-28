@@ -20,13 +20,16 @@ public class DComentario
                 cmd.CommandType = CommandType.StoredProcedure;
                 using (var item = await cmd.ExecuteReaderAsync())
                 {
-                    MComentario comentario = new MComentario();
-                    comentario.Comentario_id = (int)item[0];
-                    comentario.Producto_id = (int)item[1];
-                    comentario.Perfil_id = (int)item[2];
-                    comentario.Estrella = (short)item[3];
-                    comentario.Comentario = (string)item[4];
-                    lista.Add(comentario);
+                    while (await item.ReadAsync())
+                    {
+                        MComentario comentario = new MComentario();
+                        comentario.Comentario_id = (int)item[0];
+                        comentario.Producto_id = (int)item[1];
+                        comentario.Perfil_id = (int)item[2];
+                        comentario.Estrella = (Int16)item[3];
+                        comentario.Comentario = (string)item[4];
+                        lista.Add(comentario);
+                    }
                 }
             }
         }

@@ -35,5 +35,21 @@ namespace Tienda_Api.Datos
             }
             return lista;
         }
+
+        public async Task Insertar(MCiudad parameters)
+        {
+            using (var sql = new SqlConnection(CN))
+            {
+                using (var cmd = new SqlCommand("InsertCiudad", sql))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Ciudad_id", parameters.Ciudad_id);
+                    cmd.Parameters.AddWithValue("@Pais_id", parameters.Pais_id);
+                    cmd.Parameters.AddWithValue("@Ciudad", parameters.Ciudad);
+                    await sql.OpenAsync();
+                    await cmd.ExecuteNonQueryAsync();
+                }
+            }
+        }
     }
 }

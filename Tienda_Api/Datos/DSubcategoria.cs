@@ -33,7 +33,6 @@ namespace Tienda_Api.Datos
             return lista;
 
         }
-
         public async Task Insertar(MSubcategoria parameters)
         {
             using (var sql = new SqlConnection(CN))
@@ -48,7 +47,30 @@ namespace Tienda_Api.Datos
                 }
             }
         }
-
-
+        public async Task<List<MSubcategoria>> Mostrar_id(int ID)
+        {
+            var lista = new List<MSubcategoria>();
+            using (var sql = new SqlConnection(CN))
+            {
+                using (var cmd = new SqlCommand("GetSubcategoria_id", sql))
+                {
+                    await sql.OpenAsync();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Subcategoria_id", ID);
+                    await cmd.ExecuteNonQueryAsync();
+                    using (var item = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await item.ReadAsync())
+                        {
+                            MSubcategoria subcategoria = new MSubcategoria();
+                            subcategoria.Categoria_id = (int)item[1];
+                            subcategoria.Subcategoria = (string)item[2];
+                            lista.Add(subcategoria);
+                        }
+                    }
+                }
+            }
+            return lista;
+        }
     }
 }

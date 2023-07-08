@@ -9,7 +9,8 @@ namespace Tienda_Api.Controllers
     public class CuponesController : Controller
     {
         private DCupones cupones = new DCupones();
-        [HttpGet] public async Task<ActionResult<List<MCupones>>> Get()
+        [HttpGet] 
+        public async Task<ActionResult<List<MCupones>>> Get()
         {
             var lista = await cupones.Mostrar();
             return lista;

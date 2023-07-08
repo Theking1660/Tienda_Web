@@ -9,10 +9,16 @@ namespace Tienda_Api.Controllers
     public class PerfilController : Controller
     {
         private DPerfil perfil = new DPerfil();
+        [HttpGet]
         public async Task<ActionResult<List<MPerfil>>> Get()
         {
             var lista = await perfil.Mostrar();
             return lista;
+        }
+        [HttpPost]
+        public async Task Post([FromBody] MPerfil parameters)
+        {
+            await perfil.Insertar(parameters);
         }
     }
 }

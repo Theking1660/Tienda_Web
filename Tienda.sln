@@ -23,6 +23,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Tienda_Interfaz(1)", "Tiend
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "44575"
+		SlnRelativePath = "Tienda_Interfaz\"
 	EndProjectSection
 EndProject
 Global

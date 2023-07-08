@@ -9,6 +9,8 @@ namespace Tienda_Api.Controllers
     public class VendedorController : Controller
     {
         private DVendedor vendedor = new DVendedor();
+
+        [HttpGet]
         public async Task<ActionResult<List<MVendedor>>> Get()
         {
             var lista = await vendedor.Mostrar();

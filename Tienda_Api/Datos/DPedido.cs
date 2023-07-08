@@ -44,5 +44,29 @@ namespace Tienda_Api.Datos
             }
             return lista;
         }
+        public async Task Insertar(MPedido parameters)
+        {
+            using (var sql = new SqlConnection(CN))
+            {
+                using( var cmd= new SqlCommand("InsertPedido", sql))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Cuenta_id", parameters.Cuenta_id);
+                    cmd.Parameters.AddWithValue("@Producto_id", parameters.Producto_id);
+                    cmd.Parameters.AddWithValue("@MetodoP_id", parameters.Metodo_id);
+                    cmd.Parameters.AddWithValue("@Direccion_id", parameters.Direccion_id);
+                    cmd.Parameters.AddWithValue("@Pedido", parameters.Pedido);
+                    cmd.Parameters.AddWithValue("@Precio_total", parameters.Precio_total);
+                    cmd.Parameters.AddWithValue("@Precio_envio", parameters.Precio_envio);
+                    cmd.Parameters.AddWithValue("@ITBIS", parameters.ITBIS);
+                    cmd.Parameters.AddWithValue("@Descuento", parameters.Descuento);
+                    cmd.Parameters.AddWithValue("@Fpedido_realizado", parameters.Fpedido_realizado);
+                    cmd.Parameters.AddWithValue("@FPEDIDO_enviado", parameters.FPEDIDO_enviado);
+                    cmd.Parameters.AddWithValue("@Reembolsado", parameters.Reembolsado);
+                    await sql.OpenAsync();
+                    await cmd.ExecuteNonQueryAsync();   
+                }
+            }
+        }
     }
 }

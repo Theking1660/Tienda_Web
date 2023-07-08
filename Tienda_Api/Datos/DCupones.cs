@@ -39,5 +39,25 @@ namespace Tienda_Api.Datos
             }
             return lista;
         }
+
+        public async Task Insertar(MCupones parameters)
+        {
+            using(var sql = new SqlConnection(CN))
+            {
+                using (var cmd = new SqlCommand("InsertCupones", sql))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Producto", parameters.Producto_id);
+                    cmd.Parameters.AddWithValue("@Codigo", parameters.Codigo);
+                    cmd.Parameters.AddWithValue("@Descuento", parameters.Descuento);
+                    cmd.Parameters.AddWithValue("@Activado", parameters.Activado);
+                    cmd.Parameters.AddWithValue("@Fecha_inicio", parameters.Fecha_inicio);
+                    cmd.Parameters.AddWithValue("@Fecha_fin", parameters.Fecha_fin);
+                    cmd.Parameters.AddWithValue("@Fecha_creacion ", parameters.Fecha_creacion);
+                    await sql.OpenAsync();
+                    await cmd.ExecuteNonQueryAsync();
+                }
+            }
+        }
     }
 }

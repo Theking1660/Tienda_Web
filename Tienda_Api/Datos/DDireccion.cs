@@ -34,5 +34,22 @@ public class DDireccion
             return lista;
         }
     }
+
+    public async Task   Insertar(MDireccion parameters)
+    {
+        using(var sql = new SqlConnection(CN))
+        {
+            using (var cmd = new SqlCommand("InsertDireccion", sql))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Pais_id", parameters.Pais_id);
+                cmd.Parameters.AddWithValue("@Ciudad_id", parameters.Ciudad_id);
+                cmd.Parameters.AddWithValue("@Ubicacion", parameters.Ubicacion);
+                cmd.Parameters.AddWithValue("@Codigo_Postal", parameters.Codigo_Postal);
+                await sql.OpenAsync();
+                await cmd.ExecuteNonQueryAsync();   
+            }
+        }
+    }
 }
 

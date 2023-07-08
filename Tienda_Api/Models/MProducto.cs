@@ -11,5 +11,6 @@ namespace Tienda_Api.Models
         
         public decimal Precio { get; set;}
         public decimal? Descuento { get; set;}
+        public  int Cantidad { get; set;}
     }
 }

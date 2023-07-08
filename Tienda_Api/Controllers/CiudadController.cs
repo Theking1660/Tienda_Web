@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Data.SqlClient;
 using Tienda_Api.Datos;
 using Tienda_Api.Models;
 
@@ -15,5 +16,6 @@ namespace Tienda_Api.Controllers
             var lista = await ciudad.Mostrar();
             return lista;
         }
+
     }
 }

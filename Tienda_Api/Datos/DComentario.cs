@@ -35,5 +35,22 @@ public class DComentario
         }
         return lista;
     }
+
+    public async Task Insertar(MComentario parameters)
+    {
+        using (var sql = new SqlConnection(CN))
+        {
+            using (var cmd = new SqlCommand("InsertComentario", sql))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Producto_id", parameters.Producto_id);
+                cmd.Parameters.AddWithValue("@Perfil_id", parameters.Perfil_id);
+                cmd.Parameters.AddWithValue("@Estrella", parameters.Estrella);
+                cmd.Parameters.AddWithValue("@Comentario", parameters.Comentario);
+                await sql.OpenAsync();
+                await cmd.ExecuteNonQueryAsync();
+            }
+        }
+    }
 }
 

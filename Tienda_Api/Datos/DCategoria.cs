@@ -33,5 +33,16 @@ namespace Tienda_Api.Datos
             }
             return lista;
         }
+
+        public async Task Insertar(MCategoria parameters)
+        {
+            using (var sql = new SqlConnection(CN))
+            {
+                using (var cmd = new SqlCommand("InsertCategoria", sql))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure
+                }
+            }
+        }
     }
 }

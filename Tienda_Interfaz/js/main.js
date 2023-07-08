@@ -116,7 +116,7 @@ function Categoria() {
         });
         var resultado = await response.json();
         for (item of resultado) {
-            document.getElementById(id + i) = item.Categoria;
+            document.getElementById(id+i) = item.Categoria;
         }
     }
 }

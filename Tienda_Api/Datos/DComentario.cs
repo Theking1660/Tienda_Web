@@ -52,48 +52,5 @@ public class DComentario
             }
         }
     }
-
-    public async Task<List<MComentario>> Mostrar_id(int ID)
-    {
-        var lista = new List<MComentario>();
-        using( var sql = new SqlConnection(CN))
-        {
-            using(var cmd= new SqlCommand("GetComentario_id", sql))
-            {
-                await sql.OpenAsync();
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("Comentario_id", ID);
-                await cmd.ExecuteNonQueryAsync();
-                using (var item = await cmd.ExecuteReaderAsync())
-                {
-                    while (await item.ReadAsync())
-                    {
-                        MComentario comentario = new MComentario();
-                        comentario.Comentario_id = (int)item[0];
-                        comentario.Producto_id = (int)item[1];
-                        comentario.Perfil_id = (int)item[2];
-                        comentario.Estrella = (Int16)item[3];
-                        comentario.Comentario = (string)item[4];
-                        lista.Add(comentario);
-                    }
-                }
-            }
-            return lista;
-        }
-    }
-
-    public async Task Eliminar(int ID)
-    {
-        using(var sql = new SqlConnection(CN))
-        {
-            using(var cmd=new SqlCommand("DeleteComentario", sql))
-            {
-                await sql.OpenAsync();
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("Comentario_id", ID);
-                await cmd.ExecuteNonQueryAsync();
-            }
-        }
-    }
 }
 

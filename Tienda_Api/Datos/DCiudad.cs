@@ -51,34 +51,5 @@ namespace Tienda_Api.Datos
                 }
             }
         }
-
-        public async Task<List<MCiudad>> Mostrar_id(int ID)
-        {
-            var lista = new List<MCiudad>();
-            using(var sql =  new SqlConnection(CN))
-            {
-                using(var cmd= new SqlCommand("GetCiudad_id", sql))
-                {
-                    await sql.OpenAsync();
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("Ciudad_id", ID);
-                    await cmd.ExecuteNonQueryAsync();
-
-                    using (var item = await cmd.ExecuteReaderAsync())
-                    {
-                        while (await item.ReadAsync())
-                        {
-                            MCiudad ciudad = new MCiudad();
-                            ciudad.ID = (int)item[0];
-                            ciudad.Ciudad_id = (string)item[1];
-                            ciudad.Pais_id = (string)(item[2]);
-                            ciudad.Ciudad = (string)item[3];
-                            lista.Add(ciudad);
-                        }
-                    }
-                }
-            }
-            return lista;
-        }
     }
 }

@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", Categoria)
 (function ($) {
     "use strict";
     
@@ -102,3 +103,20 @@
     
 })(jQuery);
 
+const api = "https://localhost:7266/api/";
+
+function Categoria() {
+    let id = "Categoria-";
+    for (let i = 1; i < 13; i++) {
+        var response = await fetch(api + "Categoria/" + i, {
+            "method": 'get',
+            "headers": {
+                "Content-Type": 'application/json'
+            }
+        });
+        var resultado = await response.json();
+        for (item of resultado) {
+            document.getElementById(id + i) = item.Categoria;
+        }
+    }
+}

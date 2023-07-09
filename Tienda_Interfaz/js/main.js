@@ -103,7 +103,12 @@ document.addEventListener("DOMContentLoaded", Categoria);
     
 })(jQuery);
 
-
+function RedirigirL() {
+    window.location.href="/Login/login.html";
+}
+function RedirigirC() {
+    window.location.href = "/Register/register.html";
+}
 async function Categoria() {
     const api = "https://localhost:7266/api/";
 
@@ -120,4 +125,17 @@ async function Categoria() {
             document.getElementById(id+i).textContent = item.categoria;
         }
     }
+    var response = await fetch(api + "Categoria", {
+        method: 'get',
+        "headers": {
+            "Content-Type": 'application/json'
+        }
+    });
+    var html = '';
+    var resultado = await response.json();
+    for (item of resultado) {
+        var row = `<a href="" class="nav-item nav-link">${item.categoria}</a>`
+        html = html + row;
+    }
+    document.getElementById("Cate").outerHTML = html;
 }

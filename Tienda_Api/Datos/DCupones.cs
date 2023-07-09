@@ -42,7 +42,7 @@ namespace Tienda_Api.Datos
 
         public async Task Insertar(MCupones parameters)
         {
-            using(var sql = new SqlConnection(CN))
+            using (var sql = new SqlConnection(CN))
             {
                 using (var cmd = new SqlCommand("InsertCupones", sql))
                 {
@@ -58,6 +58,38 @@ namespace Tienda_Api.Datos
                     await cmd.ExecuteNonQueryAsync();
                 }
             }
+        }
+
+        public async Task<List<MCupones>> Mostrar_id(int ID)
+        {
+            var lista = new List<MCupones>();
+            using (var sql = new SqlConnection(CN))
+            {
+                using (var cmd = new SqlCommand("GetCupones_id", sql))
+                {
+                    await sql.OpenAsync();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("Cupones_id", ID);
+                    await cmd.ExecuteNonQueryAsync();
+                    using (var item = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await item.ReadAsync())
+                        {
+                            MCupones cupones = new MCupones();
+                            cupones.Cupones_id = (int)item[0];
+                            cupones.Producto_id = (int)item[1];
+                            cupones.Codigo = (string)item[2];
+                            cupones.Descuento = (decimal)item[3];
+                            cupones.Activado = (bool)item[4];
+                            cupones.Fecha_inicio = (DateTime)item[5];
+                            cupones.Fecha_fin = (DateTime)item[6];
+                            cupones.Fecha_creacion = (DateTime)item[7];
+                            lista.Add(cupones);
+                        }
+                    }
+                }
+            }
+            return lista;
         }
     }
 }

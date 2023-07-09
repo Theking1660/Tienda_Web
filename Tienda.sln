@@ -5,23 +5,24 @@ VisualStudioVersion = 17.6.33717.318
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tienda_Api", "Tienda_Api\Tienda_Api.csproj", "{E3F4E880-C8EA-4919-ACC7-723A9C446720}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Tienda_Interfaz(2)", "Tienda_Interfaz\", "{19CFD79B-5E10-4060-AFE4-C399ACEAF275}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Tienda_Interfaz(1)", "Tienda_Interfaz\", "{19CFD79B-5E10-4060-AFE4-C399ACEAF275}"
 	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.VirtualPath = "/localhost_30289"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_44575"
 		Debug.AspNetCompiler.PhysicalPath = "Tienda_Interfaz\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_30289\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_44575\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_30289"
+		Release.AspNetCompiler.VirtualPath = "/localhost_44575"
 		Release.AspNetCompiler.PhysicalPath = "Tienda_Interfaz\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_30289\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_44575\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "30289"
+		VWDPort = "44575"
 		SlnRelativePath = "Tienda_Interfaz\"
 	EndProjectSection
 EndProject

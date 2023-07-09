@@ -55,7 +55,6 @@ namespace Tienda_Api.Datos
                 }
             }
         }
-
         public async Task<List<MProducto>> Mostrar_id(int ID)
         {
             var lista = new List<MProducto>();
@@ -85,5 +84,20 @@ namespace Tienda_Api.Datos
             }
             return lista;
         }
+
+        public async Task Eliminar(int ID)
+        {
+            using (var sql=new SqlConnection(CN))
+            {
+                using (var cmd=new SqlCommand("DeleteProducto",sql))
+                {
+                    await sql.OpenAsync();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("Producto_id", ID);
+                    await cmd.ExecuteNonQueryAsync();
+                }
+            }
+        }
+
     }
 }

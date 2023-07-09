@@ -6,6 +6,7 @@ namespace Tienda_Api.Models
     {
         public int Producto_id { get; set; }
         public int Categoria_id { get; set; }
+        public int Subcategoria_id { get; set; }
         [MaxLength(100)]
         public string Producto { get; set;}
         

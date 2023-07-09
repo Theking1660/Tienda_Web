@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", Categoria);
+function init(){
+    Categoria();
+    Pagina();
+}
 (function ($) {
     "use strict";
     
@@ -134,8 +138,45 @@ async function Categoria() {
     var html = '';
     var resultado = await response.json();
     for (item of resultado) {
-        var row = `<a href="" class="nav-item nav-link">${item.categoria}</a>`
-        html = html + row;
+        var row = `<div class="nav-item dropdown dropright">
+                            <a onclick="Productos_Categoria(${item.categoria},${false})" class="nav-link dropdown-toggle" data-toggle="dropdown">${item.categoria} <i class="fa fa-angle-right float-right mt-1"></i></a>
+                            <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">`;
+
+                            var response_2 = await fetch((api + "Subcategoria/" + item.categoria_id), {
+            "method": 'get', 
+            "headers": { 
+                "Content-Type": 'application/json' }
+
+        });
+        var resultado_2 = await response_2.json();
+        for (item_2 of resultado_2) {
+            row = row + `<a href="" class="dropdown-item">${item_2.subcategoria}</a>`
+        }
+        html = html + row+'</div>'+'</div>';
     }
     document.getElementById("Cate").outerHTML = html;
+}
+
+function Productos_Categoria(ID,Tipo)
+{
+window.location.href= "/shopdetails.html/"+ID+"-"+Tipo;
+}
+
+function Pagina()
+{
+    var paginaActual = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
+    if (paginaActual == "shopdetails.html")
+    {
+        var url = window.location.href;
+        var parts = url.split("/"); // Dividir la URL en partes utilizando "/" como separador
+        var lastPart = parts[parts.length - 1]; // Obtener la última parte de la URL
+        
+        var idTipo = lastPart.split("-"); // Dividir la última parte en ID y Tipo
+        var id = idTipo[0]; // Extraer el ID
+        var tipo = idTipo[1]; // Extraer el Tipo
+Detalles(id,tipo);
+    }
+}
+async function Detalles(ID,tipo){
+
 }

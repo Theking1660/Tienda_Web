@@ -21,6 +21,11 @@ namespace Tienda_Api.Controllers
             var lista = await producto.Mostrar_id(ID);
             return lista;
         }
-
+        [HttpGet("{ID}/{Tipo}")]
+        public async Task<ActionResult<List<MProducto>>> Get_Ca_Pr(int ID, bool Tipo)
+        {
+            var lista = await producto.Producto_Categoria(ID, Tipo);
+            return lista;
+        }
     }
 }

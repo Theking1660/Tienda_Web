@@ -25,8 +25,6 @@ namespace Tienda_Api.Datos
                         while (await item.ReadAsync())
                         {
                             MProducto producto = new MProducto();
-                            producto.Producto_id = (int)item["Producto_id"];
-                            producto.Categoria_id = (int)item["Categoria_id"];
                             producto.Producto = (string)item["Producto"];
                             producto.Precio = (decimal)item["Precio"];
                             producto.Descuento = (decimal)item["Descuento"];
@@ -71,8 +69,6 @@ namespace Tienda_Api.Datos
                         while (await item.ReadAsync())
                         {
                             MProducto producto = new MProducto();
-                            producto.Producto_id = (int)item["Producto_id"];
-                            producto.Categoria_id = (int)item["Categoria_id"];
                             producto.Producto = (string)item["Producto"];
                             producto.Precio = (decimal)item["Precio"];
                             producto.Descuento = (decimal)item["Descuento"];
@@ -87,9 +83,9 @@ namespace Tienda_Api.Datos
 
         public async Task Eliminar(int ID)
         {
-            using (var sql=new SqlConnection(CN))
+            using (var sql = new SqlConnection(CN))
             {
-                using (var cmd=new SqlCommand("DeleteProducto",sql))
+                using (var cmd = new SqlCommand("DeleteProducto", sql))
                 {
                     await sql.OpenAsync();
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -97,6 +93,36 @@ namespace Tienda_Api.Datos
                     await cmd.ExecuteNonQueryAsync();
                 }
             }
+        }
+
+        public async Task<List<MProducto>> Producto_Categoria(int ID,bool Tipo){
+            string Prod_Cate="";
+            if (Tipo == false)
+                Prod_Cate = "select * from Tienda.Producto where Categoria_id =" + ID;
+            else
+                Prod_Cate = "select P.* from Tienda.Producto as P inner join Tienda.Subcategoria  as S on p.Categoria_id = s.Categoria_id where s.Subcategoria_id =" + ID;
+            var lista = new List<MProducto>();
+            using (var sql = new SqlConnection(CN))
+            {
+                using (var cmd = new SqlCommand(Prod_Cate, sql))
+                {
+                    await sql.OpenAsync();
+                    cmd.CommandType = CommandType.Text;
+                    using (var item = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await item.ReadAsync())
+                        {
+                            MProducto producto = new MProducto();
+                            producto.Producto = (string)item["Producto"];
+                            producto.Precio = (decimal)item["Precio"];
+                            producto.Descuento = (decimal)item["Descuento"];
+                            producto.Cantidad = (int)item["Cantidad"];
+                            lista.Add(producto);
+                        }
+                    }
+                }
+            }
+            return lista;
         }
 
     }

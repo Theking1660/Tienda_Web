@@ -10,8 +10,7 @@ namespace Tienda_Api.Controllers
     {
         DSubcategoria subcategoria = new DSubcategoria();
         [HttpGet]
-
-        public async Task<List<MSubcategoria>> Get()
+        public async Task<ActionResult<List<MSubcategoria>>> Get()
         {
 
             var lista = await subcategoria.Mostrar();

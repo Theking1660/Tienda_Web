@@ -17,5 +17,11 @@ namespace Tienda_Api.Controllers
             return lista;
 
         }
+        [HttpGet("{ID}")]
+        public async Task<ActionResult<List<MComentario>>> Get_id(int ID)
+        {
+            var lista = await comentario.Mostrar_id(ID);
+            return lista;
+        }
     }
 }

@@ -16,5 +16,11 @@ namespace Tienda_Api.Controllers
             var lista = await vendedor.Mostrar();
             return lista;
         }
+        [HttpGet("{ID}")]
+        public async Task<ActionResult<List<MVendedor>>> Get_id(int ID)
+        {
+            var lista = await vendedor.Mostrar_id(ID);
+            return lista;
+        }
     }
 }

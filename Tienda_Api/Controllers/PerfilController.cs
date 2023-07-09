@@ -20,5 +20,13 @@ namespace Tienda_Api.Controllers
         {
             await perfil.Insertar(parameters);
         }
+
+        [HttpGet("{ID}")]
+        public async Task<ActionResult<List<MPerfil>>> Get_id(int ID)
+        {
+            var lista = await perfil.Mostrar_id(ID);
+            return lista;
+        }
     }
 }
+

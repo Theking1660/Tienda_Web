@@ -14,5 +14,13 @@ namespace Tienda_Api.Controllers
             var lista = await producto.Mostrar();
             return lista;
         }
+
+        [HttpGet("{ID}")]
+        public async Task<ActionResult<List<MProducto>>> Get_id(int ID)
+        {
+            var lista = await producto.Mostrar_id(ID);
+            return lista;
+        }
+
     }
 }

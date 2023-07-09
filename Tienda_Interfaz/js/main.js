@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", Categoria)
+document.addEventListener("DOMContentLoaded", Categoria);
 (function ($) {
     "use strict";
     
@@ -103,12 +103,13 @@ document.addEventListener("DOMContentLoaded", Categoria)
     
 })(jQuery);
 
-const api = "https://localhost:7266/api/";
 
-function Categoria() {
+async function Categoria() {
+    const api = "https://localhost:7266/api/";
+
     let id = "Categoria-";
     for (let i = 1; i < 13; i++) {
-        var response = await fetch(api + "Categoria/" + i, {
+        var response = await fetch ((api + "Categoria/" + i), {
             "method": 'get',
             "headers": {
                 "Content-Type": 'application/json'
@@ -116,7 +117,7 @@ function Categoria() {
         });
         var resultado = await response.json();
         for (item of resultado) {
-            document.getElementById(id+i) = item.Categoria;
+            document.getElementById(id+i).textContent = item.categoria;
         }
     }
 }

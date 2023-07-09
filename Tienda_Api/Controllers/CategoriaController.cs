@@ -9,18 +9,12 @@ namespace Tienda_Api.Controllers
     [Route("/api/Categoria")]
     public class CategoriaController : Controller
     {
-        DCategoria categoria = new DCategoria();
         [HttpGet]
-        public async Task<ActionResult<List<MCategoria>>> Get()
+        public async Task<List<MCategoria>> Get()
         {
-
+            DCategoria categoria = new DCategoria();
             var lista = await categoria.Mostrar();
-            return lista;
-        }
-        [HttpGet("{ID}")]
-        public async Task<ActionResult<List<MCategoria>>> Get_id(int ID)
-        {
-            var lista = await categoria.Mostrar_id(ID);
+
             return lista;
         }
     }

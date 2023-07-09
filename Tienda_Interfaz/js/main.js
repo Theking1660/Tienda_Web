@@ -117,16 +117,19 @@ async function Categoria() {
     const api = "https://localhost:7266/api/";
 
     let id = "Categoria-";
-    for (let i = 1; i < 13; i++) {
-        var response = await fetch ((api + "Categoria/" + i), {
-            "method": 'get',
-            "headers": {
-                "Content-Type": 'application/json'
+    if (window.location.href == 'http://localhost:44575/index.html') {
+        for (let i = 1; i < 13; i++) {
+            var response = await fetch((api + "Categoria/" + i), {
+                "method": 'get',
+                "headers": {
+                    "Content-Type": 'application/json'
+                }
+            });
+            var resultado = await response.json();
+            for (item of resultado) {
+                document.getElementById(id + i).textContent = item.categoria;
+
             }
-        });
-        var resultado = await response.json();
-        for (item of resultado) {
-            document.getElementById(id+i).textContent = item.categoria;
         }
     }
     var response = await fetch(api + "Categoria", {
@@ -157,26 +160,15 @@ async function Categoria() {
     document.getElementById("Cate").outerHTML = html;
 }
 
-function Productos_Categoria(ID,Tipo)
+function Productos_Categoria(Ids,tipos)
 {
-window.location.href= "/shopdetails.html/"+ID+"-"+Tipo;
+    window.location.href = "/shop.html";
+    ID = Ids;
+    TIpo = tipos;
 }
 
-function Pagina()
-{
-    var paginaActual = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
-    if (paginaActual == "shopdetails.html")
-    {
-        var url = window.location.href;
-        var parts = url.split("/"); // Dividir la URL en partes utilizando "/" como separador
-        var lastPart = parts[parts.length - 1]; // Obtener la última parte de la URL
-        
-        var idTipo = lastPart.split("-"); // Dividir la última parte en ID y Tipo
-        var id = idTipo[0]; // Extraer el ID
-        var tipo = idTipo[1]; // Extraer el Tipo
-Detalles(id,tipo);
-    }
-}
+let ID, Tipo;
+
 async function Detalles(ID,tipo){
 
 }

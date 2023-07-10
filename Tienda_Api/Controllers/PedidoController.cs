@@ -8,7 +8,7 @@ namespace Tienda_Api.Controllers
     [Route("/api/Pedido")]
     public class PedidoController : Controller
     {
-        DPedido pedido = new DPedido();
+        
         [HttpGet] 
         public async Task<ActionResult<List<MPedido>>> Get()
         {
@@ -19,6 +19,7 @@ namespace Tienda_Api.Controllers
         [HttpGet("{ID}")]
         public async Task<ActionResult<List<MPedido>>> Get_id(int ID)
         {
+            DPedido pedido = new DPedido();
             var lista = await pedido.Mostrar_id(ID);
             return lista;
         }

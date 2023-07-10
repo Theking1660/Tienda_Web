@@ -9,16 +9,18 @@ namespace Tienda_Api.Controllers
     [Route("/api/Ciudad")]
     public class CiudadController : Controller
     {
-        private DCiudad ciudad = new DCiudad();
+       
         [HttpGet]
         public async Task<ActionResult<List<MCiudad>>> Get()
         {
+            var ciudad = new DCiudad();
             var lista = await ciudad.Mostrar();
             return lista;
         }
         [HttpGet("{ID}")]
         public async Task<ActionResult<List<MCiudad>>> Get_id(int ID)
         {
+            var ciudad = new DCiudad();
             var lista = await ciudad.Mostrar_id(ID);
             return lista;
         }

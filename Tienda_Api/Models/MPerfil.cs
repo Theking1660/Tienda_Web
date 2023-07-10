@@ -17,7 +17,7 @@ namespace Tienda_Api.Models
         public DateTime Fecha_Nacimiento { get; set; }
         public bool? ActivacionDP { get; set; }
         public bool? Membresia { get; set; }
-        public DateTime Fecha_creacion { get; set; }
+        public DateTime? Fecha_creacion { get; set; }
 
     }
 }

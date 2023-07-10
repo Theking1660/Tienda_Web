@@ -11,7 +11,7 @@ namespace Tienda_Api.Controllers
         [HttpGet]
         public async Task<ActionResult<List<MTipo_Perfil>>> Get()
         {
-            DTipo_Perfil tipo_Perfil = new DTipo_Perfil();
+            var tipo_Perfil = new DTipo_Perfil();
             var lista = await  tipo_Perfil.Mostrar();
             return lista;
         }

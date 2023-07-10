@@ -9,11 +9,11 @@ namespace Tienda_Api.Controllers
     [Route("/api/Direccion")]
     public class DireccionController : Controller
     {
-        private  DDireccion direccion = new DDireccion();
+       
         [HttpGet]
         public async Task<ActionResult<List<MDireccion>>> Get()
         {
-           
+            var direccion = new DDireccion();
             var lista =  await direccion.Mostrar();
             return lista;
             
@@ -21,6 +21,7 @@ namespace Tienda_Api.Controllers
         [HttpGet("{ID}")]
         public async Task<ActionResult<List<MDireccion>>> Get_id(int ID)
         {
+            var direccion = new DDireccion();
             var lista = await direccion.Mostrar_id(ID);
             return lista;
         }

@@ -11,7 +11,7 @@ namespace Tienda_Api.Controllers
         [HttpGet]
         public async Task<ActionResult<List<MPais>>> Get()
         {
-            DPais pais = new DPais();
+            var pais = new DPais();
             var lista = await pais.Mostrar();
             return lista;
         }

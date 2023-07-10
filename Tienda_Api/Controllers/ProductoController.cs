@@ -8,9 +8,10 @@ namespace Tienda_Api.Controllers
     [Route("/api/Producto")]
     public class ProductoController : Controller
     {
-        private DProducto producto = new DProducto();
-        public async Task<ActionResult<List<MProducto>>> get()
+        [HttpGet]
+        public async Task<ActionResult<List<MProducto>>> Get()
         {
+            var producto = new DProducto();
             var lista = await producto.Mostrar();
             return lista;
         }
@@ -18,12 +19,14 @@ namespace Tienda_Api.Controllers
         [HttpGet("{ID}")]
         public async Task<ActionResult<List<MProducto>>> Get_id(int ID)
         {
+            var producto = new DProducto();
             var lista = await producto.Mostrar_id(ID);
             return lista;
         }
         [HttpGet("{ID}/{Tipo}")]
         public async Task<ActionResult<List<MProducto>>> Get_Ca_Pr(int ID, bool Tipo)
         {
+            var producto = new DProducto();
             var lista = await producto.Producto_Categoria(ID, Tipo);
             return lista;
         }

@@ -1,5 +1,3 @@
-using Tienda_Api.Controllers;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

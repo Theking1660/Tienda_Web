@@ -107,6 +107,16 @@ function init(){
     
 })(jQuery);
 
+// Animation checkout
+function showAnimation() {
+    var animationContainer = document.querySelector('.animation-container');
+    animationContainer.classList.add('show-animation');
+    setTimeout(function () {
+        animationContainer.classList.remove('show-animation');
+    }, 2000);
+}
+
+
 function RedirigirL() {
     window.location.href="/Login/login.html";
 }
@@ -117,7 +127,7 @@ async function Categoria() {
     const api = "https://localhost:7266/api/";
 
     let id = "Categoria-";
-    if (window.location.href == 'http://localhost:44575/index.html') {
+    if (window.location.href == 'http://localhost:44575/index.html' || window.location.href == 'http://localhost:44575/' ) {
         for (let i = 1; i < 13; i++) {
             var response = await fetch((api + "Categoria/" + i), {
                 "method": 'get',
@@ -172,3 +182,5 @@ let ID, Tipo;
 async function Detalles(ID,tipo){
 
 }
+
+

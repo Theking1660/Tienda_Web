@@ -8,16 +8,17 @@ namespace Tienda_Api.Controllers
     [Route("/api/Cuenta")]
     public class CuentaController : Controller
     {
-        private DCuenta cuenta = new DCuenta();
         [HttpGet]
-        public async Task<ActionResult<List<MCuenta>>> get()
+        public async Task<ActionResult<List<MCuenta>>> Get()
         {
+            var cuenta = new DCuenta();
             var lista = await cuenta.Mostrar();
             return lista;
         }
         [HttpGet("{ID}")]
         public async Task<ActionResult<List<MCuenta>>> Get_id(int ID)
         {
+            var cuenta = new DCuenta();
             var lista = await cuenta.Mostrar_id(ID);
             return lista;
         }

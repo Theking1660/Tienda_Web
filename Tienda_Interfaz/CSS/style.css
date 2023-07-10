@@ -152,9 +152,9 @@ sup {
 }
 
 a {
-  color: #FFD333;
-  text-decoration: none;
-  background-color: transparent;
+    color: #c2dced;
+    text-decoration: none;
+    background-color: transparent;
 }
 
 a:hover {
@@ -6103,9 +6103,11 @@ button.bg-primary:focus {
   background-color: #ffc800 !important;
 }
 
+
 .bg-secondary {
-  background-color: #F5F5F5 !important;
-}
+    background-color: #bed9ed !important;
+} 
+
 
 a.bg-secondary:hover, a.bg-secondary:focus,
 button.bg-secondary:hover,
@@ -9320,7 +9322,7 @@ a.text-light:hover, a.text-light:focus {
 }
 
 .text-dark {
-  color: #3D464D !important;
+    color: #e2e2e2 !important;
 }
 
 a.text-dark:hover, a.text-dark:focus {
@@ -9700,6 +9702,53 @@ a.text-dark:hover, a.text-dark:focus {
   bottom: 30px;
   z-index: 11;
   animation: action 1s infinite alternate;
+}
+
+}
+
+.animation-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 9999;
+}
+
+.animation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkmark {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    border-color: #fff transparent transparent transparent;
+    animation: checkmark 0.5s ease-in-out forwards;
+}
+@keyframes checkmark {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.show-animation {
+    display: block !important;
 }
 
 @keyframes action {

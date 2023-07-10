@@ -8,11 +8,11 @@ namespace Tienda_Api.Controllers
     [Route("/api/Comentario")]
     public class ComentarioController : Controller
     {
-        private DComentario comentario = new DComentario();
+        
         [HttpGet]
         public async Task<ActionResult<List<MComentario>>> Get()
         {
-
+            DComentario comentario = new DComentario();
             var lista = await comentario.Mostrar();
             return lista;
 
@@ -20,6 +20,7 @@ namespace Tienda_Api.Controllers
         [HttpGet("{ID}")]
         public async Task<ActionResult<List<MComentario>>> Get_id(int ID)
         {
+            DComentario comentario = new DComentario();
             var lista = await comentario.Mostrar_id(ID);
             return lista;
         }

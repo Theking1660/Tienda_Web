@@ -8,11 +8,11 @@ namespace Tienda_Api.Controllers
     [Route("/api/Subcategoria")]
     public class SubcategoriaController : Controller
     {
-        DSubcategoria subcategoria = new DSubcategoria();
+      
         [HttpGet]
         public async Task<ActionResult<List<MSubcategoria>>> Get()
         {
-
+            var subcategoria = new DSubcategoria();
             var lista = await subcategoria.Mostrar();
             return lista;
         }
@@ -20,6 +20,7 @@ namespace Tienda_Api.Controllers
         [HttpGet("{ID}")]
         public async Task<ActionResult<List<MSubcategoria>>> Get_id(int ID)
         {
+            var subcategoria = new DSubcategoria();
             var lista = await subcategoria.Mostrar_id(ID);
             return lista;
         }

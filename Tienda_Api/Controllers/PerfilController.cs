@@ -8,22 +8,26 @@ namespace Tienda_Api.Controllers
     [Route("/api/Perfil")]
     public class PerfilController : Controller
     {
-        private DPerfil perfil = new DPerfil();
+        
         [HttpGet]
         public async Task<ActionResult<List<MPerfil>>> Get()
         {
+            var perfil = new DPerfil();
             var lista = await perfil.Mostrar();
             return lista;
         }
         [HttpPost]
-        public async Task Post([FromBody] MPerfil parameters)
+        public async Task<ActionResult> Post([FromBody] MPerfil parameters)
         {
+            var perfil = new DPerfil();
             await perfil.Insertar(parameters);
+            return Ok();
         }
 
         [HttpGet("{ID}")]
         public async Task<ActionResult<List<MPerfil>>> Get_id(int ID)
         {
+            var perfil = new DPerfil();
             var lista = await perfil.Mostrar_id(ID);
             return lista;
         }

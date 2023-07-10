@@ -184,3 +184,7 @@ async function Detalles(ID,tipo){
 }
 
 
+
+
+
+

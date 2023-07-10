@@ -7,8 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Controllers\NewFile.txt" />
+    <None Remove="Datos\DImagenes_P" />
+    <None Remove="Datos\NewFile.txt" />
+    <None Remove="Models\MImagenes_P" />
+    <None Remove="Models\NewFile.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Img\" />
   </ItemGroup>
 
 </Project>

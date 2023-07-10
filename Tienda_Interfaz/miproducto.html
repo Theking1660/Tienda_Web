@@ -192,67 +192,257 @@
     <div class="container-fluid">
         <div class="row px-xl-5">
             <div class="col-lg-8">
-                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Direccion de envio</span></h5>
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Detalles del producto</span></h5>
                 <div class="bg-light p-30 mb-5">
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <label>Nombres</label>
-                            <input class="form-control" type="text" placeholder="John">
+                            <label>Nombre del producto</label>
+                            <input class="form-control" type="text" placeholder="">
                         </div>
                         <div class="col-md-6 form-group">
-                            <label>Apellidos</label>
-                            <input class="form-control" type="text" placeholder="Doe">
+                            <label>Marca</label>
+                            <input class="form-control" type="text" placeholder="">
                         </div>
                         <div class="col-md-6 form-group">
-                            <label>E-mail</label>
-                            <input class="form-control" type="text" placeholder="example@email.com">
+                            <label>Codigo</label>
+                            <input class="form-control" type="text" placeholder="">
                         </div>
                         <div class="col-md-6 form-group">
-                            <label>Telefono:</label>
-                            <input class="form-control" type="text" placeholder="+123 456 789">
+                            <label>Proveedor</label>
+                            <input class="form-control" type="text" placeholder="">
                         </div>
                         <div class="col-md-6 form-group">
-                            <label>Direccion 1:</label>
-                            <input class="form-control" type="text" placeholder="123 Street">
+                            <label>Descripción y detalles</label>
+                            <input class="form-control" type="text" placeholder="">
                         </div>
                         <div class="col-md-6 form-group">
-                            <label>Direccion 2:</label>
-                            <input class="form-control" type="text" placeholder="123 Street">
+                            <label>Precio</label>
+                            <input class="form-control" type="number" step="0.01" placeholder="$0.00">
                         </div>
                         <div class="col-md-6 form-group">
-                            <label>Pais</label>
-                            <select class="custom-select">
-                                <option selected>United States</option>
-                                <option>Afghanistan</option>
-                                <option>Albania</option>
-                                <option>Algeria</option>
-                                <option>Republica Dominicana</option>
+                            <label>Categoría</label>
+                                <select id="categorySelect">
+                                <option value="0">Selecciona una categoría</option>
+                                <option value="1">Ropa, Zapatos y Joyería</option>
+                                <option value="2">Libros</option>
+                                <option value="3">Películas, Música y Juegos</option>
+                                <option value="4">Electrónicos</option>
+                                <option value="5">Computadoras</option>
+                                <option value="6">Smart Home</option>
+                                <option value="7">Hogar, Jardín y Herramientas</option>
+                                <option value="8">Artículos para Mascotas</option>
+                                <option value="9">Alimentos y Abarrotes</option>
+                                <option value="10">Belleza y Salud</option>
+                                <option value="11">Juguetes y Bebé</option>
+                                <option value="12">Handmade</option>
+                                <option value="13">Deportes</option>
+                                <option value="14">Exteriores</option>
+                                <option value="15">Automotriz e Industrial</option>
+                                <option value="16">Industrial y Científico</option>
                             </select>
                         </div>
                         <div class="col-md-6 form-group">
-                            <label>Ciudad</label>
-                            <input class="form-control" type="text" placeholder="New York">
+                            <label>Sub-Categoría</label>
+                            <select id="subcategorySelect">
+                                <option value="0">Selecciona una subcategoría</option>
+                                <option value="1">Mujeres</option>
+                                <option value="2">Hombres</option>
+                                <option value="3">Niñas</option>
+                                <option value="4">Niños</option>
+                                <option value="5">Para Bebés</option>
+                                <option value="6">Equipaje</option>
+                                <option value="7">Tiendas de Lujo</option>
+                                <option value="8">Libros</option>
+                                <option value="9">Libros en Español</option>
+                                <option value="10">Libros para Niños</option>
+                                <option value="11">Libros de Textos</option>
+                                <option value="12">Libros Electrónicos</option>
+                                <option value="13">Cine y TV</option>
+                                <option value="14">Blu-ray</option>
+                                <option value="15">CD y Vinilos</option>
+                                <option value="16">Música Digital</option>
+                                <option value="17">Instrumentos Musicales</option>
+                                <option value="18">Audífonos</option>
+                                <option value="19">Videojuegos</option>
+                                <option value="20">Videojuegos para PC</option>
+                                <option value="21">Descargas de Juegos</option>
+                                <option value="22">Coleccionables de Entretenimiento</option>
+                                <option value="23">Videojuegos de intercambio</option>
+                                <option value="24">TV y Video</option>
+                                <option value="25">Equipos de Home Theater y Audio</option>
+                                <option value="26">Cámaras, Fotografía y Video</option>
+                                <option value="27">Celulares y Accesorios</option>
+                                <option value="28">Audífonos</option>
+                                <option value="29">Videojuegos</option>
+                                <option value="30">Altavoces Inalámbricas y Bluetooth</option>
+                                <option value="31">Electrónicos para Automóvil y GPS</option>
+                                <option value="32">Instrumentos Musicales</option>
+                                <option value="33">Tecnología Vestible</option>
+                                <option value="34">Electrónicos</option>
+                                <option value="35">Computadoras, Tablets y Productos para PC</option>
+                                <option value="36">Monitores</option>
+                                <option value="37">Accesorios</option>
+                                <option value="38">Dispositivos para Redes</option>
+                                <option value="39">Dispositivos y Almacenamiento</option>
+                                <option value="40">Partes y Componentes de Computadora</option>
+                                <option value="41">Impresoras y Tinta</option>
+                                <option value="42">Software</option>
+                                <option value="43">Artículos Escolares y de Oficina</option>
+                                <option value="44">Intercambia tus Aparatos Electrónicos</option>
+                                <option value="45">Iluminación de Smart Home</option>
+                                <option value="46">Cerraduras Inteligentes y Entrada</option>
+                                <option value="47">Cámaras y Sistemas de Seguridad</option>
+                                <option value="48">Enchufes</option>
+                                <option value="49">Nuevos Dispositivos Inteligentes</option>
+                                <option value="50">Calefacción y Refrigeración</option>
+                                <option value="51">Detectores y Sensores</option>
+                                <option value="52">Entretenimiento del Hogar</option>
+                                <option value="53">Mascotas</option>
+                                <option value="54">Asistentes de Voz y Hubs</option>
+                                <option value="55">Cocina</option>
+                                <option value="56">Aspiradoras y Trapeadores</option>
+                                <option value="57">Patio y Jardín</option>
+                                <option value="58">WiFi y Conexiones de Red</option>
+                                <option value="59">Otras Soluciones</option>
+                                <option value="60">Comprar por habitación</option>
+                                <option value="61">Decoración del hogar</option>
+                                <option value="62">Muebles</option>
+                                <option value="63">Cocina y Comedor</option>
+                                <option value="64">Ropa de Cama y Baño</option>
+                                <option value="65">Jardín y Exteriores</option>
+                                <option value="66">Colchones</option>
+                                <option value="67">Iluminación</option>
+                                <option value="68">Almacenamiento y Organización</option>
+                                <option value="69">Electrodomésticos</option>
+                                <option value="70">Bellas Artes</option>
+                                <option value="71">Coleccionables y Bellas Artes</option>
+                                <option value="72">Arte, Manualidades y Costura</option>
+                                <option value="73">Artículos para Actividades y Fiestas</option>
+                                <option value="74">Accesorios para Mascotas</option>
+                                <option value="75">Herramientas Eléctricas y Manuales</option>
+                                <option value="76">Lámparas y Accesorios de Iluminación</option>
+                                <option value="77">Accesorios de Cocina y Baño</option>
+                                <option value="78">Utensilios de Cocina</option>
+                                <option value="79">Ferretería</option>
+                                <option value="80">Smart Home</option>
+                                <option value="81">Accesorios para Perros</option>
+                                <option value="82">Comida de Perros</option>
+                                <option value="83">Accesorios para Gatos</option>
+                                <option value="84">Comida de Gatos</option>
+                                <option value="85">Peces y Artículos para Acuarios</option>
+                                <option value="86">Animales Pequeños</option>
+                                <option value="87">Aves</option>
+                                <option value="88">Alimentos y Productos Gourmet</option>
+                                <option value="89">Cuidado Profesional de la Piel</option>
+                                <option value="90">Salón de Belleza y Spa</option>
+                                <option value="91">Grooming para Hombres</option>
+                                <option value="92">Salud, Hogar y Cuidado para el Bebé</option>
+                                <option value="93">Vitaminas y Suplementos Alimenticios</option>
+                                <option value="94">Artículos para el Hogar</option>
+                                <option value="95">Cuidado de la Salud</option>
+                                <option value="96">Nutrición para los Deportes</option>
+                                <option value="97">Bebé y Cuidado Infantil</option>
+                                <option value="98">Suministros Médicos y Equipo</option>
+                                <option value="99">Salud y Bienestar</option>
+                                <option value="100">Juguetes y Juegos de Mesa</option>
+                                <option value="101">Bebé</option>
+                                <option value="102">Pañales y Accesorios</option>
+                                <option value="103">Videojuegos Infantiles</option>
+                                <option value="104">Para Niñas</option>
+                                <option value="105">Para Niños</option>
+                                <option value="106">Para Bebés</option>
+                                <option value="107">Para adolescentes</option>
+                                <option value="108">Handmade</option>
+                                <option value="109">Regalos</option>
+                                <option value="110">Joyería</option>
+                                <option value="111">Hogar y cocina</option>
+                                <option value="112">Boda</option>
+                                <option value="113">Ropa y Zapatos</option>
+                                <option value="114">Bolsos y Accesorios</option>
+                                <option value="115">Belleza y Cuidado Personal</option>
+                                <option value="116">Papelería y Suministros para Fiesta</option>
+                                <option value="117">Juguetes y Juegos de Mesa</option>
+                                <option value="118">Accesorios para mascotas</option>
+                                <option value="119">Decoración del hogar</option>
+                                <option value="120">Trabajo de Arte</option>
+                                <option value="121">Cocina y Comedor</option>
+                                <option value="122">Muebles</option>
+                                <option value="123">Bebé</option>
+                                <option value="124">Ropa Deportiva</option>
+                                <option value="125">Ejercicio y Gimnasia</option>
+                                <option value="126">Caza</option>
+                                <option value="127">Pesca</option>
+                                <option value="128">Deportes de Equipo</option>
+                                <option value="129">Golf</option>
+                                <option value="130">Tienda del Fan</option>
+                                <option value="131">Ciclismo</option>
+                                <option value="132">Deportes de Recreación y Sala de Juegos</option>
+                                <option value="133">Coleccionables Deportivos</option>
+                                <option value="134">Todo Deportes y Fitness</option>
+                                <option value="135">Innovaciones del nuevo equipo</option>
+                                <option value="136">Ropa de Exteriores</option>
+                                <option value="137">Campamento y Excursionismo</option>
+                                <option value="138">Montañismo</option>
+                                <option value="139">Ciclo</option>
+                                <option value="140">Monopatines, Patinetas y Patines</option>
+                                <option value="141">Deportes Acuáticos</option>
+                                <option value="142">Deportes de Invierno</option>
+                                <option value="143">Accesorios</option>
+                                <option value="144">Partes y Accesorios Automotrices</option>
+                                <option value="145">Equipo y Herramientas Automotrices</option>
+                                <option value="146">Electrónicos para Autos y Vehículos y GPS</option>
+                                <option value="147">Llantas y Ruedas</option>
+                                <option value="148">Motocicletas y Deportes Motorizados</option>
+                                <option value="149">Piezas y Accesorios para Casas Rodantes</option>
+                                <option value="150">Suministros Industriales</option>
+                                <option value="151">Laboratorio y Científico</option>
+                                <option value="152">Limpieza</option>
+                                <option value="153">Seguridad</option>
+                                <option value="154">Servicio de Comida</option>
+                                <option value="155">Manejo de Materiales</option>
+                                <option value="156">Industrial y Científico</option>
+                                <option value="157">Doctores y Personal Médico</option>
+                                <option value="158">Profesores y Educadores</option>
+                                <option value="159">Propietarios de Restaurantes y Chefs</option>
+                                <option value="160">Minoristas y Pequeñas Empresas</option>
+                                <option value="161">Mudanza, Empaquetado, Organización</option>
+                                <option value="162">Administradores de Propiedades</option>
+                                <option value="163">Dentistas e Higienistas</option>
+                                <option value="164">Científicos y Técnicos de Laboratorio</option>
+                                <option value="165">Profesionales de MRO</option>
+                                <option value="166">Diseñadores e Ingenieros de Producto</option>
+                                <option value="167">Automotriz y Mantenimiento de Flotas</option>
+                                <option value="168">Construcción y Contratistas Generales</option>
+                                <option value="169">Profesionales en Belleza</option>
+                                <option value="170">Hotelería y Hospitalidad</option>
+                                <option value="171">Fitness y Nutrición</option>
+                                <option value="172">Profesionales en Paisajismo</option>
+                                <option value="173">Granjeros y Agricultores</option>
+                                <option value="174">Esenciales de Sala de Descanso</option>
+                            </select>
+
+                        </div>
+                        <div  class="col-md-6 form-group">
+                            <label>Cantidad a vender</label>
+                            <input type="number" id="myNumber" value="1" min="1">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Estado</label>
-                            <input class="form-control" type="text" placeholder="New York">
+                            <select class="custom-select">
+                                <option selected>Seleccionar estado</option>
+                                <option>Nuevo</option>
+                                <option>Semi-nuevo</option>
+                                <option>Usado</option>
+                                <option>Refrigerado</option>
+                            </select>
                         </div>
-                        <div class="col-md-6 form-group">
-                            <label>Codigo Postal</label>
-                            <input class="form-control" type="text" placeholder="123">
+                        <div id="drop-area">
+                            <div class="upload-icon">&#8681;</div>
+                            <label>Imagenes del producto</label>
+                            <p class="upload-text">Arrastra y suelta una imagen aquí o haz clic para seleccionarla</p>
+                            <input type="file" id="file-input">
                         </div>
-                        <div class="col-md-12 form-group">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="newaccount">
-                                <label class="custom-control-label" for="newaccount">Crear cuenta nueva</label>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="shipto">
-                                <label class="custom-control-label" for="shipto" data-toggle="collapse" data-target="#shipping-address">Ingresar direccion</label>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 <div class="collapse mb-5" id="shipping-address">
@@ -309,63 +499,29 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Total del pedido</span></h5>
-                <div class="bg-light p-30 mb-5">
-                    <div class="border-bottom">
-                        <h6 class="mb-3">Productos</h6>
-                        <div class="d-flex justify-content-between">
-                            <p>Product Name 1</p>
-                            <p>$0</p>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <p>Product Name 2</p>
-                            <p>$0</p>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <p>Product Name 3</p>
-                            <p>$0</p>
-                        </div>
-                    </div>
-                    <div class="border-bottom pt-3 pb-2">
-                        <div class="d-flex justify-content-between mb-3">
-                            <h6>Subtotal</h6>
-                            <h6>$0</h6>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-medium">Shipping</h6>
-                            <h6 class="font-weight-medium">$0</h6>
-                        </div>
-                    </div>
-                    <div class="pt-2">
-                        <div class="d-flex justify-content-between mt-2">
-                            <h5>Total</h5>
-                            <h5>$0</h5>
-                        </div>
-                    </div>
-                </div>
+          
                 <div class="mb-5">
                     <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Metodo de Pago</span></h5>
                     <div class="bg-light p-30">
                         <div class="form-group">
                             <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="payment" id="paypal">
+                                <input type="checkbox" class="custom-control-input" name="payment" id="paypal">
                                 <label class="custom-control-label" for="paypal">Paypal</label>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="payment" id="directcheck">
+                                <input type="checkbox" class="custom-control-input" name="payment" id="directcheck">
                                 <label class="custom-control-label" for="directcheck">Paga contra entrega </label>
                             </div>
                         </div>
                         <div class="form-group mb-4">
                             <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="payment" id="banktransfer">
+                                <input type="checkbox" class="custom-control-input" name="payment" id="banktransfer">
                                 <label class="custom-control-label" for="banktransfer">Transferencia bancaria</label>
                             </div>
                         </div>
-                        <button class="btn btn-block btn-primary font-weight-bold py-3" onclick="showAnimation()">Place Order</button>
+                        <button class="btn btn-block btn-primary font-weight-bold py-3" onclick="showAnimation()">Cargar producto</button>
                         <div class="animation-container">
                             <div class="animation">
                                 <span class="checkmark"></span>
